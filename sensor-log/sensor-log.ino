@@ -1,11 +1,11 @@
 #include <DHT22.h>
 
-#define pinDATA 5 
+#define pinDATA 5
 
-DHT22 dht22(pinDATA); 
- 
+DHT22 dht22(pinDATA);
+
 void setup() {
-  Serial.begin(115200); //1bit=10µs
+  Serial.begin(9600); // 1bit=10µs
   Serial.println("\ntest capteur DTH22");
 }
 
@@ -20,9 +20,12 @@ void loop() {
     Serial.println(dht22.getLastError());
   }
 
-  Serial.print("h=");Serial.print(h,1);Serial.print("\t");
-  Serial.print("t=");Serial.println(t,1);
-  Serial.print("moisture0=");Serial.println(moisture0, 1);
   
-  delay(2000); 
+  Serial.print(h, 1);
+  Serial.print(",");
+  Serial.print(t);
+  Serial.print(",");
+  Serial.println(moisture0, 1);
+
+  delay(2000);
 }
